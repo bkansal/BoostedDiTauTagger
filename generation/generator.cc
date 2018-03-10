@@ -59,7 +59,7 @@ int main()
         pid = fork();
         
         // Parent
-        if(pid)
+        if(pid > 0)
         {
             // Limit the maximum number of parallely running children
             for(; nChildRunning >= nChildMax; nChildRunning--)
