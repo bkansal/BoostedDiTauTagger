@@ -2,6 +2,13 @@
 
 FILE=$1
 
+if [[ $FILE = *"."* ]]; then
+    
+    echo "Enter filename without extension."
+    exit
+
+fi
+
 ROOT_FLAGS=`root-config --libs --cflags --ldflags`
 #CLHEP_FLAGS=`clhep-config --include --ldflags --libs`
 PYTHIA8_FLAGS=`pythia8-config --cflags --ldflags`
