@@ -3,3 +3,5 @@ https://github.com/GarageGames/Torque2D/wiki/Cloning-the-repo-and-working-with-G
 
 Instructions on how to create and upload your own repository:
 https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/
+
+git clone -b Boostedtop git@github.com:bkansal/BoostedDiTauTagger.git
