@@ -1,0 +1,72 @@
+#! /bin/sh
+# 
+# 
+ 
+usage() 
+{ 
+    echo "Usage: clhepib [package]" 
+    exit 1 
+} 
+ 
+if test $# -eq 0; then 
+    pkg=all 
+else 
+    pkg=$1 
+fi 
+ 
+libdir="/lib" 
+if test -n "$CLHEP_DIR"; then 
+    libdir="$CLHEP_DIR/lib" 
+fi 
+ 
+case $pkg in 
+all) 
+  if test -f $libdir/libCLHEP-2.1.3.1.a || test -f $libdir/libCLHEP-2.1.3.1.so 
+  then   
+    echo -L$libdir -lCLHEP-2.1.3.1 
+  else 
+    echo -L$libdir   -lCLHEP-Evaluator-2.1.3.1 -lCLHEP-Exceptions-2.1.3.1 -lCLHEP-GenericFunctions-2.1.3.1 -lCLHEP-Geometry-2.1.3.1 -lCLHEP-RandomObjects-2.1.3.1 -lCLHEP-RefCount-2.1.3.1 -lCLHEP-Matrix-2.1.3.1 -lCLHEP-Cast-2.1.3.1 -lCLHEP-Vector-2.1.3.1 -lCLHEP-Random-2.1.3.1 -lCLHEP-Utility-2.1.3.1 -lCLHEP-Units-2.1.3.1
+  fi 
+  ;; 
+Units) 
+  echo -L$libdir   -lCLHEP-Units-2.1.3.1
+  ;; 
+Utility) 
+  echo -L$libdir   -lCLHEP-Utility-2.1.3.1
+  ;; 
+Vector) 
+  echo -L$libdir   -lCLHEP-Vector-2.1.3.1 -lCLHEP-Units-2.1.3.1
+  ;; 
+Evaluator) 
+  echo -L$libdir   -lCLHEP-Evaluator-2.1.3.1
+  ;; 
+GenericFunctions) 
+  echo -L$libdir   -lCLHEP-GenericFunctions-2.1.3.1
+  ;; 
+Geometry) 
+  echo -L$libdir   -lCLHEP-Geometry-2.1.3.1 -lCLHEP-Vector-2.1.3.1 -lCLHEP-Units-2.1.3.1
+  ;; 
+Random) 
+  echo -L$libdir   -lCLHEP-Random-2.1.3.1 -lCLHEP-Utility-2.1.3.1 -lCLHEP-Units-2.1.3.1
+  ;; 
+Matrix) 
+  echo -L$libdir   -lCLHEP-Matrix-2.1.3.1 -lCLHEP-Vector-2.1.3.1 -lCLHEP-Random-2.1.3.1 -lCLHEP-Utility-2.1.3.1 -lCLHEP-Units-2.1.3.1
+  ;; 
+RandomObjects) 
+  echo -L$libdir   -lCLHEP-RandomObjects-2.1.3.1 -lCLHEP-Matrix-2.1.3.1 -lCLHEP-Vector-2.1.3.1 -lCLHEP-Random-2.1.3.1 -lCLHEP-Utility-2.1.3.1 -lCLHEP-Units-2.1.3.1
+  ;; 
+Cast) 
+  echo -L$libdir   -lCLHEP-Cast-2.1.3.1
+  ;; 
+RefCount) 
+  echo -L$libdir   -lCLHEP-RefCount-2.1.3.1 -lCLHEP-Cast-2.1.3.1
+  ;; 
+Exceptions) 
+  echo -L$libdir   -lCLHEP-Exceptions-2.1.3.1 -lCLHEP-RefCount-2.1.3.1 -lCLHEP-Cast-2.1.3.1
+  ;; 
+*) 
+  echo unknown package $pkg 
+  ;; 
+esac 
+ 
+exit 0 

@@ -7,16 +7,17 @@
 # include <vector>
 # include <sys/wait.h>
 
-//# include <CLHEP/Vector/LorentzVector.h>
+// # include "/home/work/bhumika/work/shivani/CLHEP/2.1.3.1/CLHEP/Vector/Vector/LorentzVector.h"
+# include "CLHEP/Vector/Vector/LorentzVector.h"
 
-# include "Pythia8/Pythia.h"
-# include "Pythia8Plugins/HepMC2.h"
+# include "/home/work/bhumika/work/shivani/Pythia8/pythia8219/include/Pythia8/Pythia.h"
+# include "/home/work/bhumika/work/shivani/Pythia8/pythia8219/include/Pythia8Plugins/HepMC2.h"
 
 # include "Common.h"
 
 // Total events = nUnit*nEvent
 // Ignore if using LHE files
-int nEvent = 10;
+int nEvent = 50000;
 int nUnit = 1;
 
 // Whether using LHE file or not
@@ -30,7 +31,7 @@ std::vector <std::string> v_lheFile;
 // Set to -1 to process all
 int nLHE_max = 10;
 
-const int strLen = 500;
+const int strLen = 50000;
 
 
 // Output directories
@@ -71,7 +72,7 @@ int main()
     
     else
     {
-        pythia.readFile("pythia8config/pythia8config_ZJet.txt");
+         pythia.readFile("pythia8config/pythia8config_ZJet.txt");
     }
     
     // Set explicitly, just in case
@@ -180,7 +181,7 @@ int main()
                 
                 // Units will be as chosen for HepMC build; but can be changed by arguments, e.g. GenEvt( HepMC::Units::GEV, HepMC::Units::MM)
                 HepMC::GenEvent *hepmcevt = new HepMC::GenEvent(HepMC::Units::GEV, HepMC::Units::CM);
-                ToHepMC.fill_next_event(pythia, hepmcevt);
+                ToHepMC.fill_next_event(pythia.event, hepmcevt);
                 
                 // Write the HepMC event to file
                 ascii_io->write_event(hepmcevt);

@@ -8,7 +8,7 @@
 # include <utility>
 # include <vector>
 
-# include <CLHEP/Vector/LorentzVector.h>
+# include "CLHEP/Vector/Vector/LorentzVector.h"
 
 
 namespace Common

@@ -1,0 +1,4 @@
+AbsFunctional.o: AbsFunctional.cc \
+ ../CLHEP/GenericFunctions/AbsFunctional.hh
+
+../CLHEP/GenericFunctions/AbsFunctional.hh:

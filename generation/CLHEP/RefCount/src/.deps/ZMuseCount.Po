@@ -1,0 +1,6 @@
+ZMuseCount.o: ZMuseCount.cc ../CLHEP/RefCount/ZMuseCount.h \
+ ../CLHEP/RefCount/ZMuseCount.icc
+
+../CLHEP/RefCount/ZMuseCount.h:
+
+../CLHEP/RefCount/ZMuseCount.icc:

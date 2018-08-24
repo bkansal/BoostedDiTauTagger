@@ -1,0 +1,3 @@
+RCBase.o: RCBase.cc ../CLHEP/GenericFunctions/RCBase.hh
+
+../CLHEP/GenericFunctions/RCBase.hh:
