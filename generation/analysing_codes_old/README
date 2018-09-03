@@ -1,0 +1,5 @@
+
+//write the path of root file in runs.txt 
+//Warning: make some changes in NtupleVariables.h according to your rootfiles like some constant values for kMaxParticle .
+ make
+ ./analyzeBoostedTopPol runs.txt <output root file name>.root data
